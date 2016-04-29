@@ -10,7 +10,7 @@
            xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <type type="ted.TedTask" extends="xlrelease.PythonScript" virtual="true">
     <property name="taskColor" hidden="true" default="#0B0E0F" />
-    <property name="iconLocation" default="rel/TEDLogo.png" hidden="true" />
+    <property name="iconLocation" default="ted/TEDLogo.png" hidden="true" />
   </type>
 
   <type type="ted.PerformBuildNrCheck" extends="ted.TedTask">
