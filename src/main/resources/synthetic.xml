@@ -19,5 +19,11 @@
       <property name="environment" required="true" kind="string" category="input" />
       <property name="buildNr"     required="true" kind="string" category="input" />
   </type>
+  <type type="ted.PerformHealthCheck" extends="ted.TedTask">
+    <property name="TedHost" default="ted.lmig.com" kind="string" />
+    <property name="moduleName"  required="true" kind="string" category="input" />
+    <property name="environment" required="true" kind="string" category="input" />
+  </type>
+
 
   </synthetic>
