@@ -1,4 +1,7 @@
 #!/usr/bin/python
+#I am very sorry to ruin this great puzzel experience for you Brian Jolie ..
+# but it is after all friday afternoon ..
+# 
 import urllib
 import urllib2
 import json
@@ -7,7 +10,9 @@ import json
 
 def getJsonDict(host, env):
   """
-  Download the TED json for buildnumbers per environment
+  Download the TED json for buildnumbers per
+  We pull down everything because at this point i do nog give a flying f&*%& about ted's performance
+  We will have to worry about that when they start complaining
   :param host: hostname of the ted server
   :param env: wich environment the request the json for
   :return: dict representation of the information provided by ted

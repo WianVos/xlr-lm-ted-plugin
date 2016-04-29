@@ -42,6 +42,7 @@ def getModuleDict(host, env):
 
 def getModuleInfo(host, env, module):
   """
+
     get specific info for one module
     :param host: ted host
     :param env: env to query for
