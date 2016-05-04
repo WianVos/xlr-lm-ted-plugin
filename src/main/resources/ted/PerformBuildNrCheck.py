@@ -59,7 +59,7 @@ def getModuleInfo(host, env, module):
   moduleDict = getModuleDict(host, env)
 
   if moduleDict.has_key(module) is False:
-        return False
+        return {}
 
   return moduleDict[module]
 
@@ -72,7 +72,14 @@ def checkModuleBuildNr(host, env, module, buildNumber):
     :param buildNumber: buildnumber to match
     :return: True of False
     """
-    actualBuildNumber =  getModuleInfo(host, env, module)['buildNumber']
+    moduleInfo =  getModuleInfo(host, env, module)
+
+    if moduleInfo.has_key('buildNumber'):
+        actualBuildNumber =  moduleInfo(host, env, module)['buildNumber']
+    else:
+        print "No buildnumber found for : %ss" % (module)
+        return False
+
     if actualBuildNumber != buildNumber:
         print "buildNr: %s does not match up with result from TED: %s" % (buildNumber, actualBuildNumber)
         return False

@@ -52,8 +52,8 @@ def getModuleInfo(host, env, module):
 
   moduleDict = getModuleDict(host, env)
 
-  if moduleDict.has_key(module) is False:
-        return False
+  if moduleDict.has_key(module) is None:
+        return {}
 
   return moduleDict[module]
 
@@ -66,7 +66,14 @@ def checkModuleEndpointStatus(host, env, module):
     :param buildNumber: buildnumber to match
     :return: True of False
     """
-    actualHealthStatus =  getModuleInfo(host, env, module)['httpCode']
+    moduleInfo = getModuleInfo(host, env, module)
+
+    if moduleInfo.has_key('httpCode'):
+        actualHealthStatus =  moduleInfo(host, env, module)['httpCode']
+    else:
+        print "No health status found for module: %s" % module
+        return False
+
     if actualHealthStatus != 200:
         print "httpStatus for endpoint: %s which indicates that there is something wrong with our beloved module: %s" % (actualHealthStatus, module)
         return False
