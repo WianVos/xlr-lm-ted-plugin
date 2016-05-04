@@ -61,6 +61,7 @@ def getModuleInfo(host, env, module):
   if moduleDict.has_key(module) is False:
         return {}
 
+  print moduleDict[module]
   return moduleDict[module]
 
 def checkModuleBuildNr(host, env, module, buildNumber):
