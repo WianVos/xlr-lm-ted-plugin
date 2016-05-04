@@ -70,13 +70,12 @@ def checkModuleEndpointStatus(host, env, module):
     if actualHealthStatus != 200:
         print "httpStatus for endpoint: %s which indicates that there is something wrong with our beloved module: %s" % (actualHealthStatus, module)
         return False
+    print "running HealthCheck"
 
     return True
 
-print "running HealthCheck"
 
 if checkModuleEndpointStatus(tedHost, environment, moduleName) is False:
-    print "Ted check succeeded"
     sys.exit(0)
 else:
     sys.exit(2)

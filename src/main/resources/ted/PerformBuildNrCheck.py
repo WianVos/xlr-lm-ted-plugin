@@ -77,10 +77,10 @@ def checkModuleBuildNr(host, env, module, buildNumber):
         print "buildNr: %s does not match up with result from TED: %s" % (buildNumber, actualBuildNumber)
         return False
 
+    print "Ted check succeeded"
     return True
 
 if checkModuleBuildNr(tedHost, environment, moduleName, buildNr) is True:
-    print "Ted check succeeded"
     sys.exit(0)
 else:
     sys.exit(2)
