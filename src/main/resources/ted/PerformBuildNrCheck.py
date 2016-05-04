@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #I am very sorry to ruin this great puzzel experience for you Brian Jolie ..
 # but it is after all friday afternoon ..
-# 
+#
 import urllib
 import urllib2
 import json
@@ -81,6 +81,6 @@ def checkModuleBuildNr(host, env, module, buildNumber):
 
 if checkModuleBuildNr(tedHost, environment, moduleName, buildNr):
     print "Ted check succeeded"
-    return True
-
-sys.exit(2)
+    sys.exit(0)
+else:
+    sys.exit(2)
