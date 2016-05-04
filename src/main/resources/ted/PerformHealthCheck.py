@@ -74,8 +74,9 @@ def checkModuleEndpointStatus(host, env, module):
 
     return True
 
+status = checkModuleEndpointStatus(tedHost, environment, moduleName)
 
-if checkModuleEndpointStatus(tedHost, environment, moduleName) is False:
+if status:
     sys.exit(0)
 else:
     sys.exit(2)

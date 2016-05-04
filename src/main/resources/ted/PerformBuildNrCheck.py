@@ -80,7 +80,9 @@ def checkModuleBuildNr(host, env, module, buildNumber):
     print "Ted check succeeded"
     return True
 
-if checkModuleBuildNr(tedHost, environment, moduleName, buildNr) is True:
+status = checkModuleBuildNr(tedHost, environment, moduleName, buildNr)
+
+if status:
     sys.exit(0)
 else:
     sys.exit(2)
