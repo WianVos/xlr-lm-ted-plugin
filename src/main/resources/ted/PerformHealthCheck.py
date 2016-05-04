@@ -52,7 +52,7 @@ def getModuleInfo(host, env, module):
 
   moduleDict = getModuleDict(host, env)
 
-  if moduleDict.has_key(module) is None:
+  if moduleDict.has_key(module) is False:
         return {}
 
   return moduleDict[module]
