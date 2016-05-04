@@ -75,7 +75,7 @@ def checkModuleEndpointStatus(host, env, module):
 
 print "running HealthCheck"
 
-if checkModuleEndpointStatus(tedHost, environment, moduleName) == False:
+if checkModuleEndpointStatus(tedHost, environment, moduleName) is False:
     print "Ted check succeeded"
     sys.exit(0)
 else:
