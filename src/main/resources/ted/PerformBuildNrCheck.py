@@ -45,6 +45,7 @@ def getModuleDict(host, env):
                 if module.has_key('buildNumbers'):
                   cleanInfo[cleanModuleName] = module['buildNumbers']
 
+
   return cleanInfo
 
 def getModuleInfo(host, env, module):
@@ -62,7 +63,7 @@ def getModuleInfo(host, env, module):
         return {}
 
   print moduleDict[module]
-  return moduleDict[module]
+  return moduleDict[module][0]
 
 def checkModuleBuildNr(host, env, module, buildNumber):
     """

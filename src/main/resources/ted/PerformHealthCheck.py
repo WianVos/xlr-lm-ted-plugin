@@ -55,7 +55,7 @@ def getModuleInfo(host, env, module):
   if moduleDict.has_key(module) is False:
         return {}
 
-  return moduleDict[module]
+  return moduleDict[module][0]
 
 def checkModuleEndpointStatus(host, env, module):
     """
