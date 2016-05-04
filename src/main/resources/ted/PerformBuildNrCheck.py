@@ -79,7 +79,7 @@ def checkModuleBuildNr(host, env, module, buildNumber):
 
     return True
 
-if checkModuleBuildNr(tedHost, environment, moduleName, buildNr):
+if checkModuleBuildNr(tedHost, environment, moduleName, buildNr) == True:
     print "Ted check succeeded"
     sys.exit(0)
 else:
