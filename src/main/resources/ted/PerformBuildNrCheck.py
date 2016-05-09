@@ -17,10 +17,12 @@ def getJsonDict(host, env):
   :param env: wich environment the request the json for
   :return: dict representation of the information provided by ted
   """
+
   url = "api/build-numbers/all/%s" % env
   url = urllib.quote(url)
   url = "http://%s/%s" % (host, url)
 
+  print "attempting to retrieve ted json from url: %s" % url
   response = urllib2.urlopen(url)
   return json.loads(response.read())
 
@@ -62,7 +64,6 @@ def getModuleInfo(host, env, module):
   if moduleDict.has_key(module) is False:
         return {}
 
-  print moduleDict[module]
   return moduleDict[module][0]
 
 def checkModuleBuildNr(host, env, module, buildNumber):
@@ -74,18 +75,20 @@ def checkModuleBuildNr(host, env, module, buildNumber):
     :param buildNumber: buildnumber to match
     :return: True of False
     """
-    moduleInfo =  getModuleInfo(host, env, module)
 
+
+    moduleInfo =  getModuleInfo(host, env, module)
     if moduleInfo.has_key('buildNumber'):
-        actualBuildNumber =  moduleInfo(host, env, module)['buildNumber']
+        actualBuildNumber =  moduleInfo['buildNumber']
     else:
-        print "No buildnumber found for : %ss" % (module)
+        print "No buildnumber found for : %s" % (module)
         return False
 
     if actualBuildNumber != buildNumber:
         print "buildNr: %s does not match up with result from TED: %s" % (buildNumber, actualBuildNumber)
         return False
 
+    print "buildnumber: %s found for module %s" % (buildNumber, module)
     print "Ted check succeeded"
     return True
 

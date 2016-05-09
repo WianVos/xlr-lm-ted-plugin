@@ -54,7 +54,7 @@ def getModuleInfo(host, env, module):
 
   if moduleDict.has_key(module) is False:
         return {}
-
+  print moduleDict
   return moduleDict[module][0]
 
 def checkModuleEndpointStatus(host, env, module):
@@ -69,8 +69,9 @@ def checkModuleEndpointStatus(host, env, module):
     moduleInfo = getModuleInfo(host, env, module)
 
     if moduleInfo.has_key('httpCode'):
-        actualHealthStatus =  moduleInfo(host, env, module)['httpCode']
+        actualHealthStatus =  moduleInfo['httpCode']
     else:
+        print moduleInfo
         print "No health status found for module: %s" % module
         return False
 
